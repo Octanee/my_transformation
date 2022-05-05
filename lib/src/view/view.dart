@@ -1,2 +1,4 @@
 export 'app/app.dart';
-export 'error/error_screen.dart';
+export 'home/home_page.dart';
+export 'login/login.dart';
+export 'sign_up/sign_up.dart';

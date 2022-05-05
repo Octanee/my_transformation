@@ -2,10 +2,10 @@ import 'package:formz/formz.dart';
 
 enum PasswordValidationError { invalid }
 
-class PasswordInput extends FormzInput<String, PasswordValidationError> {
-  const PasswordInput.pure() : super.pure('');
+class Password extends FormzInput<String, PasswordValidationError> {
+  const Password.pure() : super.pure('');
 
-  const PasswordInput.dirty([String value = '']) : super.dirty(value);
+  const Password.dirty([String value = '']) : super.dirty(value);
 
   static final _passwordRegExp =
       RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$');

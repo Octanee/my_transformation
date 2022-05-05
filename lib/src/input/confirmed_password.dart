@@ -2,13 +2,13 @@ import 'package:formz/formz.dart';
 
 enum ConfirmedPasswordValidationError { invalid }
 
-class ConfirmedPasswordInput
+class ConfirmedPassword
     extends FormzInput<String, ConfirmedPasswordValidationError> {
   final String password;
 
-  const ConfirmedPasswordInput.pure({this.password = ''}) : super.pure('');
+  const ConfirmedPassword.pure({this.password = ''}) : super.pure('');
 
-  const ConfirmedPasswordInput.dirty(
+  const ConfirmedPassword.dirty(
       {required this.password, String value = ''})
       : super.dirty(value);
 
