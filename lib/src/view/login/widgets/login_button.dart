@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
+import 'package:my_transformation/src/widget/widget.dart';
 
 import '../../../cubit/cubit.dart';
 
@@ -15,20 +16,19 @@ class LoginButton extends StatelessWidget {
       builder: (context, state) {
         return state.status.isSubmissionInProgress
             ? const CircularProgressIndicator()
-            : ElevatedButton(
+            : CustomButton(
                 key: const Key('loginForm_loginButton'),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  primary: theme.primaryColor,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 50,
+                  vertical: 5,
                 ),
-                onPressed: state.status.isValidated
-                    ? () => context.read<LoginCubit>().logIn()
-                    : null,
+                color: theme.colorScheme.primary,
+                isActive: state.status.isValidated,
+                onPressed: () => context.read<LoginCubit>().logIn(),
                 child: Text(
                   'LOGIN',
-                  style: theme.textTheme.headline5,
+                  style:
+                      theme.textTheme.headline5!.copyWith(color: Colors.white),
                 ),
               );
       },
