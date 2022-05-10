@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:my_transformation/src/cubit/cubit.dart';
+import 'package:my_transformation/src/view/onboarding/widgets/name_input.dart';
 import 'package:my_transformation/src/view/sign_up/widgets/widgets.dart';
 import 'package:my_transformation/src/widget/widget.dart';
 
@@ -39,7 +40,7 @@ class SignUpForm extends StatelessWidget {
               left: 20.0,
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical:50.0),
+              padding: const EdgeInsets.symmetric(vertical: 50.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -33,8 +33,6 @@ class CustomButton extends StatelessWidget {
                 currentColor.lighten(0.2),
                 currentColor,
               ],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
             ),
             borderRadius: BorderRadius.all(
               Radius.circular(radius),

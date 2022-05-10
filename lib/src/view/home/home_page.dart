@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_transformation/src/bloc/bloc.dart';
+import 'package:my_transformation/src/view/home/widgets/widgets.dart';
+import 'package:my_transformation/src/widget/widget.dart';
 
 class HomePage extends StatelessWidget {
   static Page page() => const MaterialPage<void>(child: HomePage());
@@ -10,43 +12,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
+      appBar: CustomAppBar(
         actions: [
           IconButton(
-            onPressed: () => context.read<AppBloc>().add(
-                  AppLogoutRequested(),
+            onPressed: () => context.read<AuthBloc>().add(
+                  LogoutRequested(),
                 ),
             icon: const Icon(Icons.exit_to_app),
           ),
         ],
       ),
-      body: const _HomeView(),
-    );
-  }
-}
-
-class _HomeView extends StatelessWidget {
-  const _HomeView({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final user = context.select((AppBloc bloc) => bloc.state.user);
-    return Column(
-      children: [
-        Text(
-          user.email ?? '',
-          style: textTheme.headline4,
-        ),
-        const SizedBox(height: 10),
-        Text(
-          user.name ?? '',
-          style: textTheme.headline2,
-        ),
-      ],
+      body: const HomeView(),
     );
   }
 }

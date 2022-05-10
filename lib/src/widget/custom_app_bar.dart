@@ -6,12 +6,14 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   final double height;
   final double radius;
   final Widget? child;
+  final Alignment childAligment;
   final IconButton? actionButton;
   final List<Widget>? actions;
 
   const CustomAppBar({
     this.height = 100,
     this.radius = 50,
+    this.childAligment = Alignment.bottomLeft,
     this.child,
     this.actionButton,
     this.actions,
@@ -44,7 +46,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
               ),
             ),
             Align(
-              alignment: Alignment.bottomLeft,
+              alignment: childAligment,
               child: Padding(
                 padding: const EdgeInsets.only(
                   left: 40.0,

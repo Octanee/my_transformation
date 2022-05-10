@@ -4,6 +4,7 @@ import 'package:formz/formz.dart';
 import 'package:my_transformation/src/exception/authentication/authentication.dart';
 import 'package:my_transformation/src/input/input.dart';
 import 'package:my_transformation/src/repository/authentication.dart';
+import 'package:my_transformation/src/repository/repository.dart';
 
 part 'sign_up_state.dart';
 
@@ -77,10 +78,12 @@ class SignUpCubit extends Cubit<SignUpState> {
     emit(state.copyWith(status: FormzStatus.submissionInProgress));
 
     try {
-      await _authenticationRepository.signUp(
+      final userId = await _authenticationRepository.signUp(
         email: state.email.value,
         password: state.password.value,
       );
+
+      if (userId != null) DatabaseRepository(id: userId).createUserData();
 
       emit(state.copyWith(status: FormzStatus.submissionSuccess));
       return true;

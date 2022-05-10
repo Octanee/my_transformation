@@ -7,6 +7,7 @@ class RectangleBackground extends StatelessWidget {
   final double radius;
   final Widget child;
   final Color? shadowColor;
+  final Gradient? gradient;
 
   const RectangleBackground({
     required this.child,
@@ -14,6 +15,7 @@ class RectangleBackground extends StatelessWidget {
     this.radius = 10.0,
     this.padding = const EdgeInsets.all(10.0),
     this.shadowColor,
+    this.gradient,
     Key? key,
   }) : super(key: key);
 
@@ -23,6 +25,7 @@ class RectangleBackground extends StatelessWidget {
       duration: const Duration(milliseconds: 100),
       decoration: BoxDecoration(
         color: color,
+        gradient: gradient,
         borderRadius: BorderRadius.horizontal(
           left: Radius.circular(radius),
         ),

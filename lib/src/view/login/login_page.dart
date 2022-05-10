@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_transformation/src/cubit/login/login_cubit.dart';
-import 'package:my_transformation/src/view/login/login_form.dart';
+import 'package:my_transformation/src/view/login/widgets/widgets.dart';
 
 import '../../repository/repository.dart';
 

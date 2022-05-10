@@ -1,12 +1,44 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:my_transformation/src/bloc/bloc.dart';
 import 'package:my_transformation/src/view/view.dart';
 
-List<Page> onGenerateAppPages(AppStatus status, List<Page<dynamic>> pages) {
+import '../cubit/cubit.dart';
+
+List<Page> onGenerateAuthFlow(
+  AuthStatus status,
+  List<Page<dynamic>> pages,
+) {
   switch (status) {
-    case AppStatus.authenticated:
-      return [HomePage.page()];
-    case AppStatus.unauthenticated:
+    case AuthStatus.authenticated:
+      return [LoadingPage.page()];
+    case AuthStatus.unauthenticated:
       return [LoginPage.page()];
+  }
+}
+
+List<Page> onGenerateNewUserFlow(
+  bool isNew,
+  List<Page<dynamic>> pages,
+) {
+  if (isNew) {
+    return [OnboardingPage.page()];
+  }
+  return [HomePage.page()];
+}
+
+List<Page> onGenerateOnboardingFlow(
+  OnboardingStatus state,
+  List<Page<dynamic>> pages,
+) {
+  switch (state) {
+    case OnboardingStatus.welcomeComplete:
+      return [];
+    case OnboardingStatus.userDataComplete:
+      return [];
+    case OnboardingStatus.usageComplete:
+      return [];
+    case OnboardingStatus.initial:
+    default:
+      return [];
   }
 }

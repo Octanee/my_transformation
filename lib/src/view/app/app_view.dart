@@ -14,9 +14,9 @@ class AppView extends StatelessWidget {
       title: 'My Transformation',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
-      home: FlowBuilder<AppStatus>(
-        state: context.select((AppBloc bloc) => bloc.state.status),
-        onGeneratePages: onGenerateAppPages,
+      home: FlowBuilder<AuthStatus>(
+        state: context.select((AuthBloc bloc) => bloc.state.status),
+        onGeneratePages: onGenerateAuthFlow,
       ),
     );
   }
