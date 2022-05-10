@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_transformation/src/bloc/bloc.dart';
+import 'package:my_transformation/src/view/onboarding/pages/onboarding_complete.dart';
+import 'package:my_transformation/src/view/onboarding/pages/pages.dart';
 import 'package:my_transformation/src/view/view.dart';
 
 import '../cubit/cubit.dart';
@@ -31,14 +33,13 @@ List<Page> onGenerateOnboardingFlow(
   List<Page<dynamic>> pages,
 ) {
   switch (state) {
-    case OnboardingStatus.welcomeComplete:
-      return [];
-    case OnboardingStatus.userDataComplete:
-      return [];
-    case OnboardingStatus.usageComplete:
-      return [];
-    case OnboardingStatus.initial:
-    default:
-      return [];
+    case OnboardingStatus.welcome:
+      return [OnboardingWelcome.page()];
+    case OnboardingStatus.userData:
+      return [OnboardingUserData.page()];
+    case OnboardingStatus.usage:
+      return [OnboardingUsage.page()];
+    case OnboardingStatus.complete:
+      return [OnboardingComplete.page()];
   }
 }

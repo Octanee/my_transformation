@@ -6,7 +6,7 @@ import 'package:equatable/equatable.dart';
 class UserData extends Equatable {
   final bool isNew;
   final String? name;
-  final String? age;
+  final int? age;
 
   const UserData({
     required this.isNew,
@@ -22,7 +22,7 @@ class UserData extends Equatable {
   UserData copyWith({
     bool? isNew,
     String? name,
-    String? age,
+    int? age,
   }) {
     return UserData(
       isNew: isNew ?? this.isNew,

@@ -10,17 +10,17 @@ class NameInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<OnboardingCubit, OnboardingState>(
-      // buildWhen: (previous, current) => previous.name != current.name,
+      buildWhen: (previous, current) => previous.name != current.name,
       builder: (context, state) {
         return CustomFormInput(
-            key: const Key('signUpForm_nameInput'),
-            labelText: 'Name',
-            prefixIcon: const Icon(Icons.person_outline_rounded),
-            keyboardType: TextInputType.name,
-            //error: state.name.invalid,
-            onChanged: (name) => {}
-            // context.read<SignUpCubit>().nameChanged(value: name),
-            );
+          key: const Key('onboarding_nameInput'),
+          labelText: 'Name',
+          prefixIcon: const Icon(Icons.person_outline_rounded),
+          keyboardType: TextInputType.name,
+          error: state.name.invalid,
+          onChanged: (name) =>
+              context.read<OnboardingCubit>().nameChanged(value: name),
+        );
       },
     );
   }
